@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // weakMap:弱引用(所以key只能是对象,否则没法引用)
+      // 浏览器的垃圾回收有好几种方式,其中有一个叫“标记引用”,每引用一次,就会记一次数
+      // 标记清除法 引用计数法
+      class MyTest {}
+      let my = new MyTest();
+      //   let map = new Map();// Map-key可以是任意类型
+      let map = new WeakMap(); // WeakMap-key只能是对象
+      map.set(my, 1);
+
+      my = null; // ?
+      // 当你给一个变量设置为null的时候,不会马上回收，会在合适的机会自己清空
+      // map引用的对象,不会被回收掉
+      // weakMap引用的对象,被置为null时，后续会被清空
+
+      // http://www.javascriptpeixun.cn/goods/show/5?targetId=12&preview=0
+    </script>
+  </body>
+</html>
