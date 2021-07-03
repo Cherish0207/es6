@@ -1,0 +1,5 @@
+- ES6 中的 Symbol 的使用
+- ES6 中的 set 和 map、weakMap、weakSet
+- spread 展开运算符，实现一个深拷贝
+- defineProperty 的使用，proxy 使用
+- 数组中新增的方法 compose 组合函数
