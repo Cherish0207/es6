@@ -35,5 +35,16 @@ let instance = {
 };
 console.log({ name: "zf" } instanceof instance); // true  __proto__
 
+// instanceof 会查找前面对象的原型链上有没有后面函数的原型对象。
+function myInstanceOf(obj, func) {
+  const FO = func.prototype; // 获取函数的原型对象
+  const Obj = obj.__proto__; // 获取所传进来对象的原型对象
+  while (true) {
+    if (Obj === null) return false;
+    if (Obj === FO) return true;
+    Obj = Obj.__proto__;
+  }
+}
+
 // Symbol.toStringTag Symbol.toPrimitive
 // Symbol.iterator
